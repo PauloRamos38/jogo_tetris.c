@@ -1,0 +1,8 @@
+# Build and test artifacts
+build/
+outputs/
+*.o
+*.obj
+*.exe
+*.out
+*.err
