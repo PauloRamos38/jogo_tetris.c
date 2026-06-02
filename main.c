@@ -62,7 +62,10 @@ Peca gerarPeca() {
     
     Peca novaPeca;
 
+    // Sorteia um tipo de peça entre I, O, T e L
     novaPeca.nome = tipos[rand() % 4];
+
+    // Gera ID único incremental para facilitar rastreio
     novaPeca.id = proximoID++;
 
     return novaPeca;
@@ -135,8 +138,8 @@ void push(Pilha *pilha, Peca peca) {
         return;
     }
 
+    // Avanca o topo e salva a nova peca na posicao livre
     pilha->topo++;
-
     pilha->itens[pilha->topo] = peca;
 }
 // ========================================
@@ -146,8 +149,10 @@ void push(Pilha *pilha, Peca peca) {
 
 Peca pop(Pilha *pilha) {
 
+    // Le a peca no topo atual
     Peca removida = pilha->itens[pilha->topo];
 
+    // Rebaixa o topo apos a remocao
     pilha->topo--;
 
     return removida;
@@ -187,10 +192,13 @@ void enqueue(Fila *fila, Peca peca) {
         return;
     }
 
+    // Insere no fim atual da fila
     fila->itens[fila->fim] = peca;
 
+    // Avanca o fim de forma circular
     fila->fim = (fila->fim + 1) % TAM_FILA;
 
+    // Atualiza total de elementos
     fila->quantidade++;
 }
 
@@ -201,10 +209,13 @@ void enqueue(Fila *fila, Peca peca) {
 
 Peca dequeue(Fila *fila) {
 
+    // Remove a peca da frente da fila
     Peca removida = fila->itens[fila->inicio];
 
+    // Move o inicio para a proxima posicao circular
     fila->inicio = (fila->inicio + 1) % TAM_FILA;
 
+    // Atualiza total de elementos
     fila->quantidade--;
 
     return removida;
@@ -223,6 +234,7 @@ void exibirFila(Fila *fila) {
 
     for (int i = 0; i < fila->quantidade; i++) {
 
+        // Exibe os elementos a partir do inicio, respeitando circularidade
         printf("[%c %d] ",
                fila->itens[indice].nome,
                fila->itens[indice].id);
@@ -254,11 +266,14 @@ void trocarTopo(Fila *fila, Pilha *pilha) {
 
     Peca temp;
 
+    // Guarda a frente da fila
     temp = fila->itens[fila->inicio];
 
+    // Coloca o topo da pilha na frente da fila
     fila->itens[fila->inicio] =
         pilha->itens[pilha->topo];
 
+    // Coloca a antiga frente da fila no topo da pilha
     pilha->itens[pilha->topo] = temp;
 
     printf("\nTroca realizada com sucesso!\n");
@@ -287,6 +302,7 @@ void trocarTres(Fila *fila, Pilha *pilha) {
         int indiceFila =
             (fila->inicio + i) % TAM_FILA;
 
+        // Troca par a par entre fila (frente para tras) e pilha (topo para baixo)
         Peca temp =
             fila->itens[indiceFila];
 
@@ -362,12 +378,14 @@ int main() {
 
         } else {
 
+            // Acao 1: joga a peca da frente da fila
             Peca removida = dequeue(&fila);
 
             printf("\nPeca jogada: [%c %d]\n",
                    removida.nome,
                    removida.id);
 
+            // Mantem a fila sempre com TAM_FILA pecas
             enqueue(&fila, gerarPeca());
         }
 
@@ -386,6 +404,7 @@ int main() {
 
         } else {
 
+            // Acao 2: move a frente da fila para a reserva (pilha)
             Peca reservada = dequeue(&fila);
 
             push(&pilha, reservada);
@@ -394,6 +413,7 @@ int main() {
                    reservada.nome,
                    reservada.id);
 
+            // Repõe a fila com nova peca para manter o fluxo do jogo
             enqueue(&fila, gerarPeca());
         }
 
@@ -408,6 +428,7 @@ int main() {
 
         } else {
 
+            // Acao 3: usa/remover a peca do topo da reserva
             Peca usada = pop(&pilha);
 
             printf("\nPeca usada da reserva: [%c %d]\n",
@@ -420,6 +441,7 @@ int main() {
 
     case 4: {
 
+        // Acao 4: troca frente da fila com topo da pilha
         trocarTopo(&fila, &pilha);
 
         break;
@@ -427,6 +449,7 @@ int main() {
 
     case 5: {
 
+        // Acao 5: troca 3 primeiras da fila com 3 da pilha
         trocarTres(&fila, &pilha);
 
         break;
