@@ -1,0 +1,84 @@
+
+=================================
+       TETRIS STACK
+=================================
+
+Fila de Pecas: [L 0] [L 1] [I 2] [I 3] [O 4] 
+
+Pilha de Reserva (Topo -> Base): [I 7] [L 6] [O 5] 
+
+=== Estado Atual ===
+
+Opcoes:
+1 - Jogar peca da frente da fila
+2 - Enviar peca da fila para reserva (pilha)
+3 - Usar peca da reserva (pilha)
+4 - Trocar peca da frente da fila com o topo da pilha
+5 - Trocar os 3 primeiros da fila com as 3 pecas da pilha
+0 - Sair
+
+Opcao: 
+Troca realizada com sucesso!
+
+=================================
+       TETRIS STACK
+=================================
+
+Fila de Pecas: [I 7] [L 1] [I 2] [I 3] [O 4] 
+
+Pilha de Reserva (Topo -> Base): [L 0] [L 6] [O 5] 
+
+=== Estado Atual ===
+
+Opcoes:
+1 - Jogar peca da frente da fila
+2 - Enviar peca da fila para reserva (pilha)
+3 - Usar peca da reserva (pilha)
+4 - Trocar peca da frente da fila com o topo da pilha
+5 - Trocar os 3 primeiros da fila com as 3 pecas da pilha
+0 - Sair
+
+Opcao: 
+Troca dos 3 elementos realizada!
+
+=================================
+       TETRIS STACK
+=================================
+
+Fila de Pecas: [L 0] [L 6] [O 5] [I 3] [O 4] 
+
+Pilha de Reserva (Topo -> Base): [I 7] [L 1] [I 2] 
+
+=== Estado Atual ===
+
+Opcoes:
+1 - Jogar peca da frente da fila
+2 - Enviar peca da fila para reserva (pilha)
+3 - Usar peca da reserva (pilha)
+4 - Trocar peca da frente da fila com o topo da pilha
+5 - Trocar os 3 primeiros da fila com as 3 pecas da pilha
+0 - Sair
+
+Opcao: 
+Peca jogada: [L 0]
+
+=================================
+       TETRIS STACK
+=================================
+
+Fila de Pecas: [L 6] [O 5] [I 3] [O 4] [I 8] 
+
+Pilha de Reserva (Topo -> Base): [I 7] [L 1] [I 2] 
+
+=== Estado Atual ===
+
+Opcoes:
+1 - Jogar peca da frente da fila
+2 - Enviar peca da fila para reserva (pilha)
+3 - Usar peca da reserva (pilha)
+4 - Trocar peca da frente da fila com o topo da pilha
+5 - Trocar os 3 primeiros da fila com as 3 pecas da pilha
+0 - Sair
+
+Opcao: 
+Encerrando programa...
